@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-#include "sorting.h"
+#include "sorts/sorting.h"
 
 int main() {
     std::vector<int> arr = { 10, 9, 8, 7, 6, 3, 2 };
