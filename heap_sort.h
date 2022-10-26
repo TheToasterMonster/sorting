@@ -1,5 +1,7 @@
-#include <vector>
+#pragma once
+
 #include <utility>
+#include <vector>
 
 // max heap
 template <typename T>
