@@ -2,4 +2,4 @@
 
 set -xe
 
-clang++ -Wall -pedantic -std=c++17 -o test *.cpp
+clang++ -Wall -pedantic -std=c++17 -O2 -o test *.cpp

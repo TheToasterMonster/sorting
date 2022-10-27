@@ -5,13 +5,12 @@
 template <typename T>
 struct merge_sort {
     void operator()(std::vector<T>& arr) {
-        std::vector<T> tmp;
-        tmp.reserve(arr.size());
+        std::vector<T> tmp(arr);
         m_sort(0, arr.size() - 1, arr, tmp);
     }
 private:
     void m_sort(size_t L, size_t R, std::vector<T>& arr, std::vector<T>& tmp) {
-        if (R - L > 0) {
+        if (R > L) {
             size_t mid = L + (R - L) / 2;
             m_sort(L, mid, arr, tmp);
             m_sort(mid + 1, R, arr, tmp);
@@ -30,17 +29,15 @@ private:
                 tmp[i++] = arr[R++];
             }
         }
-        if (L > mid) {
-            for (size_t j = R; j <= right; j++) {
-                tmp[i++] = arr[j];
-            }
-        } else if (R > mid) {
-            for (size_t j = L; j <= mid; j++) {
-                tmp[i++] = arr[j];
-            }
+        for (size_t j = R; j <= right; j++) {
+            tmp[i++] = arr[j];
         }
-        for (size_t i = left; i <= right; i++) {
-            arr[i] = tmp[i];
+        for (size_t j = L; j <= mid; j++) {
+            tmp[i++] = arr[j];
+        }
+
+        for (size_t j = left; j <= right; j++) {
+            arr[j] = tmp[j];
         }
     }
 };
