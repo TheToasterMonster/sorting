@@ -39,7 +39,7 @@ private:
     }
 
     static void buildHeap(std::vector<T>& arr) {
-        for (int i = arr.size() / 2; i < arr.size(); i--) {
+        for (size_t i = arr.size() / 2; i < arr.size(); i--) {
             downHeap(i, arr, arr.size());
         }
     }
